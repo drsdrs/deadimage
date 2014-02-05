@@ -1,0 +1,226 @@
+@import "font-awesome.scss";
+$baseColor: #6A83B8;
+
+@font-face {
+  font-family: 'josefin';
+  src: url('font/JosefinSans-SemiBold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html{
+  height:100%;
+  width:100%;
+}
+
+
+.editOn{max-height: calc(100% - 238px);}
+
+
+body{
+  font-family: josefin,arial;
+  max-height: calc(100% - 24px);
+  height: auto;
+  width:calc(100% - 24px);
+  padding:12px;
+  transition: all 0.6s;
+  margin:0;
+  overflow: hidden;
+  background: rgb(10, 10, 10);
+  color:#ddd;
+  text-shadow: 2px 2px 2px black;
+  transition: all 0.6s;
+
+}
+
+#canvasContainer {
+  height: calc(100% - 38px);
+  .canvasArea {
+    height: 100%;
+  }
+  
+  .editImage{float: right;}
+  #loader{}
+  .loading {
+    background: url(../images/ajax-loader.gif) 0 0;
+    background-repeat: no-repeat;
+    background-position-x: calc(50% - 12.5px);
+    background-position-y: 48%;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 48px;
+    width: calc(100% - 24px);
+    height: calc(100% - 61px);
+    border-radius: 5px;
+    margin: 0 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .span6 {
+    display:inline-block;
+    width: calc(50% - 6px);
+    margin:0;
+    padding:0;
+    height: 100%;
+    text-align: center;
+    background: #333;
+    .editOn{max-height: calc(100% - 275px);}
+    canvas {
+      max-width: calc(100% - 12px);
+      max-height: calc(100% - 72px);
+      padding: 6px 6px 1px;
+    }
+  }
+  label[for=loadImage] {
+    font-family: josefin,arial;
+    font-size: 17px;
+    -webkit-align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    padding: 2px 6px 3px;
+    box-sizing: border-box;
+    -webkit-appearance: push-button;
+  }
+}
+
+#listContainer {
+  padding-bottom:12px;
+  #colorPicker {
+    position: fixed;
+    display: none;
+    left: calc(50% - 182px);
+    bottom: 40px;
+    z-index: 999;
+    box-shadow: 19px 19px 18px rgba(0,0,0,0.4);
+    border-radius: 222px;
+  }
+  input[type=button], input[type=file] {display:none;}
+   .menu label{
+     cursor: pointer;
+    display: inline-block;
+    background: #e4e4e4;
+    font-size: 17px;
+    font-family: josefin, arial;
+    border: 0;
+    padding: 6px;
+    line-height: 0;
+    min-width: 100px;
+    text-align: center;
+    background-color: #6a83b8;
+    padding-bottom: 7px;
+
+  }
+  label {
+    margin-right:4px;
+  }
+  ul#fxList {
+    display: none;
+    position: fixed;
+    width: 172px;
+    left: 12px;
+    top: 51px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    >li:hover {
+      background: #ccc;
+      ol {display:block;}
+    }
+    >li.active{background: #aaa}
+    >li {
+      line-height: 0.7;
+      height: 16px;
+      width: auto;
+      background: $baseColor;
+      padding: 4px 0 8px 12px;
+      >a {
+        display: block;
+        }
+      >ol:hover {display: block;}  
+      >ol {
+        display: none;
+        position: relative;
+        left: 160px;
+        top: -15px;
+        padding: 0;
+        width: 190px;
+        >li:hover{background: #aaa}
+        >li {
+            display: inline-block;
+            cursor: pointer;
+            list-style: none;
+            background: $baseColor;
+            padding: 0 0 0 4px;
+            height: 28px;
+          label:hover {background:#333}
+          label {
+            cursor: crosshair;
+            margin-right: 4px;
+            background: rgba(0, 0, 0, 0.31);
+            display: inline-block;
+            width: 30px;
+            padding: 4px;
+            height: 20px;
+            margin: 0;
+          }
+          > a {
+            display:inline-block;
+            width:130px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#editItem {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: $baseColor;
+  margin: 12px 0 0 0;
+  padding: 0;
+  height: 204px;
+  input[type="text"] {
+    width: 145px;
+    display: inline-block;
+  }
+  .buttonsEditItem{
+    width: 250px;
+    display: inline-block;
+    width: 235px;
+    padding: 14px 0 14px 14px;
+    label{
+      display: inline-block;
+      width: 78px;
+      }
+      input[type=button] {
+        width: 55px;
+        margin-top: 23px;
+      }
+  }
+  .inputsEditItem{
+    display: inline-block;
+    width: calc(100% - 287px);
+    float: right;
+    padding: 14px 20px 0 0;
+    textarea{
+      width: 100%;
+      height: 174px;
+      resize: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #listContainer > .menu > label {
+    font-size: 0em;
+    color: #6a83b8;
+    min-width:11%;
+  }
+  #listContainer > .menu > label > span{
+    font-size:17px;
+    color: #ccc;
+  }
+}

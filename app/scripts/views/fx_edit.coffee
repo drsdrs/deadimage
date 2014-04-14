@@ -1,11 +1,11 @@
 'use strict';
 
 class backbone.Views.FxEditView extends Backbone.View
-    
+
   el: '#editItem'
- 
+
   created: false
- 
+
   events:
     'click #saveItem': 'saveItem'
     'click #testItem': 'testItem'
@@ -16,43 +16,42 @@ class backbone.Views.FxEditView extends Backbone.View
   formula: $('#editItem textarea')
   itemName: $('#editItem #itemName')
   itemCategory: $('#editItem #itemCategory')
-  
+
   initialize: (args) ->
     @listView = args.listView
-   
+
   checkKeyUp: (e) ->
     key = e.keyCode
-    if key==18 # altGr for testing Picture
+    if key==225 # altGr for testing Picture
       e.preventDefault()
       @testItem()
-      return
-      
+
     console.log(e.keyCode)
-     
+
   testItem: ->
     @listView.applyFx(@formula.val())
-      
+
   saveItem: () ->
     title = @itemName.val()
     formula = @formula.val()
     category = @itemCategory.val()
-    if formula=='' || title=='' 
+    if formula=='' || title==''
       alert('Fill out name, formula and category.')
       return
-    if category.length>=20 || title.length>=20 
+    if category.length>=20 || title.length>=20
       alert('Please less than 20 letters in name and category.')
       return
     lg category.length
     @fx.set(formula: formula)
     @fx.set(title: title)
     @fx.set(category: category)
-    
+
     @hideEditView()
     if @created==false
       @listView.setItem(@fx, 'update')
     else
       @listView.setItem(@fx, 'create')
-      
+
   cancelEdit: () ->
     console.log(@listView)
     @listView.setItem(null, 'cancel')
@@ -91,7 +90,7 @@ class backbone.Views.FxEditView extends Backbone.View
     #$('.canvasArea #loader').addClass("editOn")
     $('body').addClass('editOn')
     $('#itemName').focus()
-    
+
   hideEditView: ->
     $('#fxList').show()
     $('#editItem').slideUp()

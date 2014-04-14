@@ -1,4 +1,15 @@
 deadimage
 =========
+Edit Images with simple math, and binary...
 
-Want get some dirt on your pic with crazy effect, grab a bite of "Dead-Image" and get fancy.
+Installation
+============
+npm i
+
+Start
+=====
+grunt server
+
+ToDo
+====
+Add examples

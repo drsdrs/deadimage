@@ -1,5 +1,5 @@
-deadimage
-=========
+# deadimage
+
 Edit Images with simple math, and binary...
 
 Installation

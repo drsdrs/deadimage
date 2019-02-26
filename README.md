@@ -1,4 +1,4 @@
-# deadimage
+# DEAD_IMAGE
 
 Edit Images with simple math, and binary...
 
